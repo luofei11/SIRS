@@ -6,14 +6,14 @@ import cv2
 #create argument parser
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dataset", required = True, help = "Path to directory of image datasets.")
-ap.add_argument("-i", "--index", required = True, help = "Path to the index storage.")
+ap.add_argument("-ci", "--cindex", required = True, help = "Path to the index storage.")
 args = vars(ap.parse_args())
 
 #initialize color descriptor
 cd = ColorDescriptor((8, 12, 3))
 
 #open the index file
-indexFile = open(args["index"], 'w')
+indexFile = open(args["cindex"], 'w')
 
 for imagePath in glob.glob(args["dataset"] + "/*.jpg"):
     UID = imagePath[imagePath.rfind('/') + 1:]
